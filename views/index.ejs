@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background: #ecf0f1;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    a {
+      text-decoration: none;
+      color: #2980b9;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <a href=""><Button>Click here to add</Button></a>
+  <h1>All the Todos are here!!</h1>
+  <ul>
+    <% todos.forEach(function(todo) { %>
+      <li><%= todo.name %></li>
+    <% }); %>
+</body>
+</html>
