@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Chat</title>
+  <style>
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f8cdda, #1d2b64);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    min-height: 100vh;
+    margin: 0;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  h1 {
+    color: white;
+    margin-bottom: 20px;
+    animation: slideDown 0.7s ease-out;
+  }
+
+  form {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    animation: slideUp 0.8s ease-out;
+  }
+
+  label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 600;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.3);
+    outline: none;
+  }
+
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+
+  button {
+    margin-top: 20px;
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+
+  button:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+  }
+
+  a {
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #ffe082;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+
+  </style>
+</head>
+<body>
+  <h1>Add New To-Do</h1>
+  <form action="/add" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter the Name of Todo" required>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required>
+    <button type="submit">Add Todo</button>
+  </form>
+  <p><a href="/todos">Back to Home</a></p>
+</body>
+</html>

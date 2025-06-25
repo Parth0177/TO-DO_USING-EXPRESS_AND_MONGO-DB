@@ -35,4 +35,27 @@ app.get('/',(req,res)=>{
 app.get('/todos',async (req,res)=>{
   const todos = await Todo.find({});
   res.render('index.ejs',{todos})
-})
+});
+
+app.get('/details/:_id', async (req, res) => {
+  const todo = await Todo.findById(req.params._id);
+  res.render('details.ejs', { todo });
+});
+
+app.get('/add/new',(req,res)=>{
+  res.render('add.ejs');
+});
+
+app.post('/add', async (req, res) => {
+  const { name, description } = req.body;
+
+  try {
+    const newTodo = new Todo({ name, description });
+    await newTodo.save();
+    console.log('✅ Todo Created Successfully');
+    res.redirect('/todos');
+  } catch (err) {
+    console.error('❌ Failed to create todo:', err);
+    res.status(500).send("Error creating todo");
+  }
+});

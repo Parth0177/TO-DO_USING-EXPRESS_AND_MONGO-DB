@@ -1,53 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background: linear-gradient(to right, #f8cdda, #1d2b64);
       color: #333;
       margin: 0;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
+
     h1 {
-      color: #2c3e50;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      background: #ecf0f1;
-      margin: 5px 0;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    a {
-      text-decoration: none;
-      color: #2980b9;
-    }
-    button {
+
+    .btn {
       background-color: #3498db;
       color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
     }
-    button:hover {
+
+    .btn:hover {
       background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    li {
+      background: rgba(255, 255, 255, 0.9);
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    li:hover {
+      transform: translateY(-3px);
+    }
+
+    .details {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .details:hover {
+      background-color: #c0392b;
+      transform: scale(1.05);
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <a href=""><Button>Click here to add</Button></a>
+  <a href="/add/new"><button class="btn">Click here to add</button></a>
   <h1>All the Todos are here!!</h1>
   <ul>
     <% todos.forEach(function(todo) { %>
-      <li><%= todo.name %></li>
+      <li>
+        <span><%= todo.name %></span>
+        <a href="/details/<%= todo._id %>">
+          <button class="details">Click to see details</button>
+        </a>
+      </li>
     <% }); %>
+  </ul>
 </body>
 </html>
