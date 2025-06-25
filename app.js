@@ -59,3 +59,9 @@ app.post('/add', async (req, res) => {
     res.status(500).send("Error creating todo");
   }
 });
+
+app.delete('/todos/:id', async (req, res) => {
+  const { id } = req.params;
+  await  Todo.findByIdAndDelete(id);
+  res.redirect('/todos');
+});
